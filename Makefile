@@ -27,3 +27,7 @@ $(ESP_OPEN_SDK)/$(XTENSA): $(FW)/tools/esp-open-sdk.tar.gz
 
 flash: $(FW)/bin/0x00000.bin
 	$(ESPTOOL) --port $(PORT) write_flash -fm $(FLASH_MODE) 0x00000 $(FW)/bin/0x00000.bin 0x10000 $(FW)/bin/0x10000.bin
+
+clean:
+	git clean -xdf
+	$(MAKE) -C $(FW) clean
